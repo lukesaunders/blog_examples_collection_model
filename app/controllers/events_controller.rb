@@ -13,6 +13,10 @@ class EventsController < ApplicationController
 
   def edit
     @event = Event.find(params[:id])
+
+    unless @event.jobs_finalized?
+      @new_jobs = Job.template_jobs
+    end
   end
 
   def create

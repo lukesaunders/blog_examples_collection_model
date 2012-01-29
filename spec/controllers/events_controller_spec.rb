@@ -50,13 +50,28 @@ describe EventsController do
   end
 
   describe "#edit" do
-    before do
-      @event = Factory(:event)
-      get :edit, :id => @event
+    context "pre jobs finalized" do
+      before do
+        @event = Factory(:event, :jobs_finalized => false)
+        get :edit, :id => @event
+      end
+
+      it { should respond_with(:success) }
+      it { should assign_to :event }
+      it { should assign_to :new_jobs }
+      it { should render_template :edit }
     end
 
-    it { should respond_with(:success) }
-    it { should assign_to :event }
-    it { should render_template :edit }
+    context "post jobs finalized" do
+      before do
+        @event = Factory(:event, :jobs_finalized => true)
+        get :edit, :id => @event
+      end
+
+      it { should respond_with(:success) }
+      it { should assign_to :event }
+      it { should_not assign_to :new_jobs }
+      it { should render_template :edit }
+    end
   end
 end
