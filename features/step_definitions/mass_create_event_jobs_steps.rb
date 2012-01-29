@@ -15,6 +15,8 @@ When /^Change some details and submit the form$/ do
   within page.find(:xpath, "//div[contains(.//span/text(), \"Raise the flag\")]") do
     fill_in "Expected time", :with => "2.00"
   end
+
+  click_on "Edit event"
 end
 
 Then /^All those jobs should be created with my changes$/ do

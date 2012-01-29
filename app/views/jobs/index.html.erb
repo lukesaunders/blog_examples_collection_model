@@ -4,6 +4,7 @@
   <tr>
     <th>Name</th>
     <th>Event</th>
+    <th>Expected time</th>
     <th>Done</th>
     <th></th>
     <th></th>
@@ -14,6 +15,7 @@
   <tr>
     <td><%= link_to job.name, edit_job_path(job) %></td>
     <td><%= job.event_id %></td>
+    <td><%= job.expected_time %></td>
     <td><%= job.done %></td>
   </tr>
 <% end %>
