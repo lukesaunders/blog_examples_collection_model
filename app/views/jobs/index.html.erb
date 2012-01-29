@@ -12,12 +12,9 @@
 
 <% @jobs.each do |job| %>
   <tr>
-    <td><%= job.name %></td>
+    <td><%= link_to job.name, edit_job_path(job) %></td>
     <td><%= job.event_id %></td>
     <td><%= job.done %></td>
-    <td><%= link_to 'Show', job %></td>
-    <td><%= link_to 'Edit', edit_job_path(job) %></td>
-    <td><%= link_to 'Destroy', job, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
 </table>

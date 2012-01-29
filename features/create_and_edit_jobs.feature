@@ -1,5 +1,5 @@
 Feature: create and edit jobs
-  As a slave driver who manages the lifes of skivvys
+  As a slave driver who manages the lives of skivvys
   I want to create and edit their jobs
   So I can sit around watching them
   Scenario: Create and edit jobs

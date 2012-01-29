@@ -1,5 +1,10 @@
 <h1>New job</h1>
 
-<%= render 'form' %>
+<%= form_for(@job) do |f| %>
+  <%= render :partial => 'form', :locals => { :f => f } %>
+  <div class="actions">
+    <%= f.submit 'Create job' %>
+  </div>
+<% end %>
 
 <%= link_to 'Back', jobs_path %>

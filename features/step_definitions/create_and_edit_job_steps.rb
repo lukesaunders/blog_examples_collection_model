@@ -4,7 +4,7 @@ When /^I create a new job$/ do
   click_button "Create job"
 end
 
-Then /^I should be able to edit my job$/ do
+Then /^I should be able to edit it$/ do
   visit jobs_path
   click_on "Test Job"
   fill_in "Name", :with => "Changed Job"
