@@ -1,7 +1,18 @@
 <h1>Editing event</h1>
 
-<%= form_for(@event) do |f| %>
-  <%= render :partial => 'form', :locals => { :f => f } %>
+<%= twitter_bootstrap_form_for(@event) do |f| %>
+  <%= f.inputs "General" do %>
+    <%= render :partial => 'form', :locals => { :f => f } %>
+  <% end %>
+
+  <%= f.inputs "Jobs" do %>
+    <%= f.fields_for(:jobs, @new_jobs) do |jf| %>
+      <%= jf.hidden_field :name %>
+      <%= jf.text_field :expected_time, :add_on => :prepend do %>
+        <span class="add-on"><%= jf.object.name %></span>
+      <% end %>
+    <% end %>
+  <% end %>
   <div class="actions">
     <%= f.submit 'Edit event' %>
   </div>

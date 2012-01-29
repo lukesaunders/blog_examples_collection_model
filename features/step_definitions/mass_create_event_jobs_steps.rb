@@ -9,10 +9,10 @@ end
 
 When /^Change some details and submit the form$/ do
   # expect a table with a list of new jobs to be created, each with a field for expected time
-  within page.find(:xpath, "//tr[contains(.//td/text(), \"Erect a flag pole\")]") do
+  within page.find(:xpath, "//div[contains(.//span/text(), \"Erect a flag pole\")]") do
     fill_in "Expected time", :with => "4.00"
   end
-  within page.find(:xpath, "//tr[contains(.//td/text(), \"Raise the flag\")]") do
+  within page.find(:xpath, "//div[contains(.//span/text(), \"Raise the flag\")]") do
     fill_in "Expected time", :with => "2.00"
   end
 end
