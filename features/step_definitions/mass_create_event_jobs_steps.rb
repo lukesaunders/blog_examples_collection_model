@@ -28,6 +28,6 @@ Then /^All those jobs should be created with my changes$/ do
 end
 
 Then /^The event should be marked that the jobs are finalized$/ do
-  visit edit_path(@event)
+  visit event_path(@event)
   page.should_not have_content "Create event jobs"
 end

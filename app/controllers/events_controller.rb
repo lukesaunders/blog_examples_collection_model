@@ -35,6 +35,10 @@ class EventsController < ApplicationController
 
     @event.attributes = params[:event]
     if @event.save
+      if params[:event][:jobs_attributes]
+        @event.jobs_finalized = true
+        @event.save
+      end
       flash[:notice] = 'Event was successfully updated'
       redirect_to event_path(@event)
     else
