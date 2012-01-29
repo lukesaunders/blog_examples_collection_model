@@ -31,7 +31,7 @@ describe EventsController do
   describe "#update" do
     before(:each) do
       @event = Factory(:event)
-      put :update, :id => @event.id, :name => "New name"
+      put :update, :id => @event.id, :event => { :name => "New name" }
     end
 
     it { should set_the_flash.to(/updated/i) }
