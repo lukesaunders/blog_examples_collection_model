@@ -14,4 +14,8 @@ describe Event do
       end
     end
   end
+
+  describe "jobs relation" do
+    it { should have_many :jobs }
+  end
 end
