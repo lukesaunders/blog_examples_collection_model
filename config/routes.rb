@@ -1,4 +1,6 @@
 CollectionModel::Application.routes.draw do
+  resources :jobs
+
   resources :events
 
   # The priority is based upon order of creation:
