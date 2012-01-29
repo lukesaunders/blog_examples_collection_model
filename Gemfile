@@ -34,7 +34,7 @@ group :test do
   gem "database_cleaner"
   gem "capybara"
   gem 'turn', :require => false
-  gem "rspec-rails", "~> 2.6"
+  gem "rspec-rails", "= 2.7"
   gem "shoulda-matchers"
   gem "factory_girl_rails"
   gem 'resque_spec'
