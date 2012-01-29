@@ -1,6 +1,12 @@
 <h1>Editing event</h1>
 
-<%= render 'form' %>
+<%= form_for(@event) do |f| %>
+  <%= render :partial => 'form', :locals => { :f => f } %>
+  <div class="actions">
+    <%= f.submit 'Edit event' %>
+  </div>
+<% end %>
+
 
 <%= link_to 'Show', @event %> |
 <%= link_to 'Back', events_path %>

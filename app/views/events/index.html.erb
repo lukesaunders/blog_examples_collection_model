@@ -10,10 +10,7 @@
 
 <% @events.each do |event| %>
   <tr>
-    <td><%= event.name %></td>
-    <td><%= link_to 'Show', event %></td>
-    <td><%= link_to 'Edit', edit_event_path(event) %></td>
-    <td><%= link_to 'Destroy', event, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to event.name, edit_event_path(event) %></td>
   </tr>
 <% end %>
 </table>
