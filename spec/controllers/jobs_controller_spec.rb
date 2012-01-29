@@ -20,7 +20,7 @@ describe JobsController do
   describe "#create" do
     before(:each) do
       params = FactoryGirl.attributes_for(:job)
-      post :create, :job => params
+      post :create, :job => params.merge(:event => nil, :event_id => params[:event].id)
       @new_job = Job.first
     end
 
