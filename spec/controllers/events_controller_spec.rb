@@ -21,7 +21,7 @@ describe EventsController do
     before(:each) do
       params = FactoryGirl.attributes_for(:event)
       post :create, :event => params
-      @new_event = Event.first
+      @new_event = Event.find_by_name(params[:name])
     end
 
     it { should set_the_flash.to(/created/i) }

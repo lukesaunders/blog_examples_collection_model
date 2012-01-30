@@ -21,7 +21,7 @@ describe JobsController do
     before(:each) do
       params = FactoryGirl.attributes_for(:job)
       post :create, :job => params.merge(:event => nil, :event_id => params[:event].id)
-      @new_job = Job.first
+      @new_job = Job.find_by_name(params[:name])
     end
 
     it { should set_the_flash.to(/created/i) }
