@@ -11,12 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120129214904) do
+ActiveRecord::Schema.define(:version => 20120129225710) do
 
   create_table "events", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "jobs_finalized", :default => false
   end
 
   create_table "jobs", :force => true do |t|
@@ -25,6 +26,7 @@ ActiveRecord::Schema.define(:version => 20120129214904) do
     t.boolean  "done"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "expected_time", :default => "0.00"
   end
 
 end

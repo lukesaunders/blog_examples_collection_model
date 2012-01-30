@@ -30,6 +30,8 @@ gem 'jquery-rails'
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
 
+gem "twitter_bootstrap_form_for"
+
 group :test do
   gem "database_cleaner"
   gem "capybara"
