@@ -9,12 +9,14 @@ end
 
 When /^Change some details and submit the form$/ do
   # expect a table with a list of new jobs to be created, each with a field for expected time
-  within page.find(:xpath, "//tr[contains(.//td/text(), \"Erect a flag pole\")]") do
+  within page.find(:xpath, "//div[contains(.//span/text(), \"Erect a flag pole\")]") do
     fill_in "Expected time", :with => "4.00"
   end
-  within page.find(:xpath, "//tr[contains(.//td/text(), \"Raise the flag\")]") do
+  within page.find(:xpath, "//div[contains(.//span/text(), \"Raise the flag\")]") do
     fill_in "Expected time", :with => "2.00"
   end
+
+  click_button "Initialise jobs"
 end
 
 Then /^All those jobs should be created with my changes$/ do
@@ -26,6 +28,6 @@ Then /^All those jobs should be created with my changes$/ do
 end
 
 Then /^The event should be marked that the jobs are finalized$/ do
-  visit edit_path(@event)
+  visit event_path(@event)
   page.should_not have_content "Create event jobs"
 end

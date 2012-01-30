@@ -1,0 +1,17 @@
+<h1>New jobs for <%= @event.name %></h1>
+
+<%= twitter_bootstrap_form_for @event_job_collection, :url => { :action => :create, :event_id => @event.id } do |f| %>
+  <% @event_job_collection.jobs.each_index do |job_index| %>
+    <% job = @event_job_collection.jobs[job_index] %>
+    <%= f.fields_for("jobs[#{job_index}]", job) do |jf| %>
+      <%= jf.hidden_field :name %>
+      <%= jf.text_field :expected_time, :add_on => :prepend do %>
+        <span class="add-on"><%= jf.object.name %></span>
+      <% end %>
+    <% end %>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit 'Initialise jobs' %>
+  </div>
+<% end %>

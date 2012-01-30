@@ -5,6 +5,8 @@ class EventJobCollection
 
   attr_accessor :event, :jobs
 
+  delegate :id, :to => :event, :prefix => :event
+
   def initialize(event, event_params = nil)
     @event = event
     unless event.jobs_finalized?
